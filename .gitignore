@@ -1,0 +1,4 @@
+/src/config/auth.js
+.DS_Store
+	.vscode/
+	node_modules/
