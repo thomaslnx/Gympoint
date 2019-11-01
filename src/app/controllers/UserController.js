@@ -17,9 +17,19 @@ class UserController {
       return res.status(401).json({ error: 'Validation fails.' });
     }
 
-    const user = await User.create(req.body);
+    const user = await User.findOne({
+      where: {
+        name: req.body.name,
+      },
+    });
 
-    return res.json(user);
+    if (user) {
+      return res.status(401).json({ error: 'Admin user alread exists' });
+    }
+
+    const admin = await User.create(req.body);
+
+    return res.json(admin);
   }
 }
 
