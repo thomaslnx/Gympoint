@@ -73,10 +73,8 @@ class StudentsSubscriptionController {
         break;
 
       default:
-        console.log('Chegou no default');
+        return res.status(401).json({ error: 'Something goes wrong.' });
     }
-
-    //
 
     return res.json(workoutPlan);
   }
